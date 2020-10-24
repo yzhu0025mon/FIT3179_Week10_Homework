@@ -1,0 +1,62 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+  "width": 800,
+  "height": 400,
+  "title": "Maximum Capacities of Shops with Liquor License (by Suburbs)",
+  "data": {
+    "url": "https://raw.githubusercontent.com/yzhu0025mon/FIT3179_Week10_Homework/main/data/Week_10_HW_Data.json"
+  },
+  "params": [
+    {
+      "name": "Suburb_selection",
+      "bind": {
+        "input": "select",
+        "options": [
+          null,
+          "BERWICK",
+          "CAULFIELD",
+          "CLAYTON",
+          "FRANKSTON",
+          "PARKVILLE"
+        ],
+        "labels": [
+          "Show all",
+          "Berwick",
+          "Caulfield",
+          "Clayton",
+          "Frankston",
+          "Parkville"
+        ],
+        "name": "Select suburbs: "
+      }
+    }
+  ],
+  "transform": [
+    {"filter": "Suburb_selection == null || datum.Suburb == Suburb_selection"},
+    {
+      "aggregate": [{"op": "count", "as": "MaxCapacity_count"}],
+      "groupby": ["Maximum Capacity"]
+    }
+  ],
+  "mark": "bar",
+  "encoding": {
+    "x": {
+      "field": "Maximum Capacity",
+      "type": "ordinal",
+      "sort": [
+        "Less than 5",
+        "Between 5 and 19",
+        "Between 20 and 49",
+        "Between 50 and 99",
+        "Between 100 and 199",
+        "Between 200 and 499",
+        "More than 499",
+        "Unspecified"
+      ]
+    },
+    "y": {"field": "MaxCapacity_count", "type": "quantitative"},
+    "tooltip": [
+      {"field": "MaxCapacity_count", "type": "quantitative", "title": "Count"}
+    ]
+  }
+}
