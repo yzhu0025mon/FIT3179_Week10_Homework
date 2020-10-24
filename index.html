@@ -13,19 +13,19 @@
 </head>
 <body>
 
-<h1>An Example of Multiple Visualisations</h1>
+<h1>Week 10 Homework</h1>
 
-<h2>This is the first visualisation</h2>
-<div id="choropleth_map"></div>
+<h2>Pie Chart Recording Gambling Permission</h2>
+<div id="pie_chart"></div>
 
-<h2>This is the second visualisation</h2>
+<h2>Bar Chart Recording Maximum Capacities</h2>
 <div id="bar_chart"></div>
 
 <script type="text/javascript">
   
-  var vis1 = "js/choropleth_map.vg.json";
+  var vis1 = "js/pie_chart_interactive.vg.json";
   
-  vegaEmbed('#choropleth_map', vis1).then(function(result) {
+  vegaEmbed('#pie_chart', vis1).then(function(result) {
     // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
   }).catch(console.error);
   
