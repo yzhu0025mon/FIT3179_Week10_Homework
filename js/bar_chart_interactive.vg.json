@@ -32,9 +32,7 @@
     }
   ],
   "transform": [
-    {
-      "filter": "Suburb_selection == null || datum.Suburb == Suburb_selection"
-    },
+    {"filter": "Suburb_selection == null || datum.Suburb == Suburb_selection"},
     {
       "aggregate": [{
        "op": "count",
